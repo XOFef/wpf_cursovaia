@@ -16,3 +16,5 @@ C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\Wpf.pdb
 C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\App.baml
 C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\Registration.g.cs
 C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\Registration.baml
+C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\lossPassword.g.cs
+C:\Users\reter\source\repos\Wpf\Wpf\obj\Debug\lossPassword.baml

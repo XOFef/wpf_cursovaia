@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <!-- Круглая кнопка -->
         <Style x:Key="GlassButton" TargetType="{x:Type Button}">
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -174,6 +175,7 @@
             </Setter>
         </Style>
 
+        <!-- Кнопка для изображения -->
         <ImageBrush x:Key="ButtonImage" ImageSource="/6cc9c5e57fd5ed22ebd4e8f4e3a5b4b4.png"></ImageBrush>
         <Style x:Key="imageButton" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource ButtonImage}"></Setter>
