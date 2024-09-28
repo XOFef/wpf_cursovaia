@@ -66,5 +66,48 @@ namespace Wpf
             }
         }
 
+        private void Button_Click_Registr(object sender, RoutedEventArgs e)
+        {
+            string login = TextLogin.Text.Trim();
+            string Email = TextBoxEmail.Text.Trim();
+            string pass = TextBoxPassword.Password.Trim();
+            string age = TextBoxAge.Text.Trim();
+            string gender = GenderBox.Text;
+
+            SolidColorBrush trueColor = new SolidColorBrush();
+            trueColor.Color =
+                Color.FromArgb(
+                    255,
+                    138,
+                    212,
+                    199);
+
+            //Проверка логина
+            if (login.Length < 5)
+            {
+                TextLogin.ToolTip = "Логин слишком короткий!";
+                TextLogin.BorderBrush = Brushes.Red;
+            }
+            else
+            {
+                TextLogin.BorderBrush = trueColor;
+            }
+
+            //Проверка почты 
+            if (IsValidEmail(Email))
+            {
+                TextBoxEmail.BorderBrush = trueColor;
+            }
+            else {
+                TextBoxEmail.ToolTip = "Почта введена некорректно!";
+                TextBoxEmail.BorderBrush = Brushes.Red;
+            }
+             bool IsValidEmail(string email)
+            {
+                string pattern = @"(@)(.+>3)$"; // шаблон для проверки почты
+                return Regex.IsMatch(email, pattern);
+            }
+
+        }
     }
 }

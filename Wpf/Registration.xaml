@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -48,21 +49,21 @@
                     <ScrollViewer VerticalScrollBarVisibility ="Hidden">
                         <Grid Width="600">
                             <TextBlock Text="Логин" Margin="29,71,0,0" Width="300" Height="58" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <TextBox Width="535" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="29,120,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <TextBlock   Text="Email" Margin="29,200,0,0" Width="300" Height="58" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                            <TextBox Width="535" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="29,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextLogin" Width="535" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="29,120,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Email" Margin="29,200,0,0" Width="300" Height="58" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            <TextBox x:Name="TextBoxEmail"  Width="535" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="29,247,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                             <TextBlock HorizontalAlignment="Left" Margin="29,325,0,0" TextWrapping="Wrap" Text="Пароль" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
-                            <PasswordBox Margin="29,375,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7"/>
+                            <PasswordBox x:Name="TextBoxPassword"  Margin="29,375,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7" />
                             <TextBlock HorizontalAlignment="Left" Margin="29,455,0,0" TextWrapping="Wrap" Text="Пароль еще раз" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
                             <PasswordBox Margin="29,505,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7"/>
                             <TextBlock HorizontalAlignment="Left" Margin="29,585,0,0" TextWrapping="Wrap" Text="Ваш пол" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
-                            <ComboBox HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="240" BorderThickness="5" BorderBrush="#FF8AD4C7" Background="White" Height="47">
+                            <ComboBox x:Name="GenderBox" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="240" BorderThickness="5" BorderBrush="#FF8AD4C7" Background="White" Height="47">
                                 <TextBlock>М</TextBlock>
                                 <TextBlock>Ж</TextBlock>
                             </ComboBox>
                             <TextBlock HorizontalAlignment="Left" Margin="329,585,0,0" TextWrapping="Wrap" Text="Ваш возраст" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
-                            <TextBox Width="240" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="329,630,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" PreviewTextInput="PreviewTextInput" DataObject.Pasting="TextBox_Pasting"/>
-                            <Button Content="Войти" HorizontalAlignment="Left" Margin="29,750,0,79" Width="540" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="115" VerticalAlignment="Bottom" BorderThickness="0"/>
+                            <TextBox x:Name="TextBoxAge" Width="240" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Margin="329,630,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" PreviewTextInput="PreviewTextInput" DataObject.Pasting="TextBox_Pasting"/>
+                            <Button Content="Войти" HorizontalAlignment="Left" Margin="29,750,0,79" Width="540" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="115" VerticalAlignment="Bottom" BorderThickness="0" Click="Button_Click_Registr"/>
                         </Grid>
 
                     </ScrollViewer>
