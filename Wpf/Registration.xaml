@@ -55,7 +55,7 @@
                             <TextBlock HorizontalAlignment="Left" Margin="29,325,0,0" TextWrapping="Wrap" Text="Пароль" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
                             <PasswordBox x:Name="TextBoxPassword"  Margin="29,375,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7" />
                             <TextBlock HorizontalAlignment="Left" Margin="29,455,0,0" TextWrapping="Wrap" Text="Пароль еще раз" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
-                            <PasswordBox Margin="29,505,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7"/>
+                            <PasswordBox x:Name="twoPass" Margin="29,505,30,0" BorderThickness="5" Height="50" VerticalAlignment="Top" FontSize="26" BorderBrush="#FF8AD4C7"/>
                             <TextBlock HorizontalAlignment="Left" Margin="29,585,0,0" TextWrapping="Wrap" Text="Ваш пол" FontWeight="Bold" Foreground="#FF1F4B43" Height="58" VerticalAlignment="Top" Width="300"/>
                             <ComboBox x:Name="GenderBox" HorizontalAlignment="Left" Margin="29,630,0,0" VerticalAlignment="Top" Width="240" BorderThickness="5" BorderBrush="#FF8AD4C7" Background="White" Height="47">
                                 <TextBlock>М</TextBlock>

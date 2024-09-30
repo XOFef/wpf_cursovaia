@@ -73,6 +73,7 @@ namespace Wpf
             string pass = TextBoxPassword.Password.Trim();
             string age = TextBoxAge.Text.Trim();
             string gender = GenderBox.Text;
+            string twopass = twoPass.Password.Trim();
 
             SolidColorBrush trueColor = new SolidColorBrush();
             trueColor.Color =
@@ -83,7 +84,7 @@ namespace Wpf
                     199);
 
             //Проверка логина
-            if (login.Length < 5)
+            if (login.Length < 5 && login == null)
             {
                 TextLogin.ToolTip = "Логин слишком короткий!";
                 TextLogin.BorderBrush = Brushes.Red;
@@ -91,12 +92,14 @@ namespace Wpf
             else
             {
                 TextLogin.BorderBrush = trueColor;
+                TextLogin.ToolTip = null;
             }
 
             //Проверка почты 
-            if (IsValidEmail(Email))
+            if (Email != null && IsValidEmail(Email))
             {
                 TextBoxEmail.BorderBrush = trueColor;
+                TextBoxEmail.ToolTip = null;
             }
             else {
                 TextBoxEmail.ToolTip = "Почта введена некорректно!";
@@ -104,8 +107,118 @@ namespace Wpf
             }
              bool IsValidEmail(string email)
             {
-                string pattern = @"(@)(.+>3)$"; // шаблон для проверки почты
+                string pattern = @"(@)(.+)$"; // шаблон для проверки почты
                 return Regex.IsMatch(email, pattern);
+            }
+
+            // Проверка пароля
+            bool symbPass = false, numPass = false, upPass = false;
+
+            if (pass != null) 
+            {
+                for (int i = 0; i < pass.Length; i++)
+                {
+                    if (char.IsUpper(pass[i]))
+                    {
+                        upPass = true;
+                        break;
+                    }
+                }
+
+                if (pass.Contains('-') || pass.Contains('|') || pass.Contains('=') || pass.Contains('%') || pass.Contains('(')
+                        || pass.Contains(')') || pass.Contains('!') || pass.Contains('#') || pass.Contains('@') || pass.Contains('?'))
+                {
+                    symbPass = true;
+                }
+
+                if (pass.Contains('1') || pass.Contains('2') || pass.Contains('3') || pass.Contains('4') || pass.Contains('5')
+                       || pass.Contains('6') || pass.Contains('7') || pass.Contains('8') || pass.Contains('9') || pass.Contains('0'))
+                {
+                    numPass = true;
+                }
+
+
+                if (pass.Length < 8)
+                {
+                    TextBoxPassword.ToolTip = "В пароле мало символов!";
+                    TextBoxPassword.BorderBrush = Brushes.Red;
+                    TextBoxPassword.Password = "";
+                }
+                if (upPass == false)
+                {
+                    TextBoxPassword.ToolTip = "В пароле нет большой буквы!";
+                    TextBoxPassword.BorderBrush = Brushes.Red;
+                    TextBoxPassword.Password = "";
+                }
+                if (numPass == false)
+                {
+                    TextBoxPassword.ToolTip = "В пароле нет цифры!";
+                    TextBoxPassword.BorderBrush = Brushes.Red;
+                    TextBoxPassword.Password = "";
+                }
+                if (symbPass == false)
+                {
+                    TextBoxPassword.ToolTip = "В пароле нет специальных символов!";
+                    TextBoxPassword.BorderBrush = Brushes.Red;
+                    TextBoxPassword.Password = "";
+                }
+                if (symbPass == true && pass.Length > 8 && numPass == true && upPass == true)
+                {
+                    TextBoxPassword.BorderBrush = trueColor;
+                    TextBoxPassword.ToolTip = null;
+                }
+            }
+            else
+            {
+                TextBoxPassword.ToolTip = "Вы не написали пароль!";
+                TextBoxPassword.BorderBrush = Brushes.Red;
+            }
+            
+
+            // Проверка на совпадение повторного пароля
+            if (twopass != null)
+            {
+                if (twopass == pass)
+                {
+                    twoPass.BorderBrush = trueColor;
+                    twoPass.ToolTip = null;
+                }
+                else
+                {
+                    twoPass.BorderBrush = Brushes.Red;
+                    twoPass.ToolTip = "Пароли не совпадают!";
+                }
+            }
+            else
+            {
+                twoPass.BorderBrush = Brushes.Red;
+                twoPass.ToolTip = "Вы не подтвердили пароль!";
+            }
+
+            // Проверка на возраст
+            if(age != null)
+            {
+                int numAge = Int32.Parse(age);
+                if (numAge < 16)
+                {
+                    TextBoxAge.BorderBrush = Brushes.Red;
+                    TextBoxAge.ToolTip = "Возраст слишком мал!";
+                }
+                else if (numAge > 80)
+                {
+                    TextBoxAge.BorderBrush = Brushes.Red;
+                    TextBoxAge.ToolTip = "Некорректные данные!";
+                }
+                else
+                {
+                    TextBoxAge.BorderBrush = trueColor;
+                    TextBoxAge.ToolTip = null;
+                }
+            }
+            else
+            {
+                TextBoxAge.BorderBrush = Brushes.Red;
+                TextBoxAge.ToolTip = "Вы не ввели возраст!";
             }
 
         }
