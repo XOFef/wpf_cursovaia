@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,12 +16,20 @@ using System.Windows.Shapes;
 
 namespace Wpf
 {
+
     public partial class Registration : Window
     {
+
+        public string MyVariable { get; set; }
+        private string log;
         public Registration()
         {
             InitializeComponent();
+            log = TextLogin.Text.Trim();
+            MyVariable = log;
         }
+
+        
 
         // закрытие окна при нажатии вне окна
         protected override void OnDeactivated(EventArgs e)
@@ -66,6 +75,7 @@ namespace Wpf
             }
         }
 
+        // Кнопка в регистрации
         private void Button_Click_Registr(object sender, RoutedEventArgs e)
         {
             string login = TextLogin.Text.Trim();
@@ -74,6 +84,7 @@ namespace Wpf
             string age = TextBoxAge.Text.Trim();
             string gender = GenderBox.Text;
             string twopass = twoPass.Password.Trim();
+            Application.Current.Properties["UserName"] = login;
 
             SolidColorBrush trueColor = new SolidColorBrush();
             trueColor.Color =
@@ -221,6 +232,30 @@ namespace Wpf
                 TextBoxAge.ToolTip = "Вы не ввели возраст!";
             }
 
+        }
+
+
+
+        // Кнопка в входе
+        private void Button_Click_entrance(object sender, RoutedEventArgs e)
+        {
+            string loginOrEmail = LoginOrEmail.Text.Trim();
+            string pass = password.Password.Trim();
+            bool admin = false;
+
+            if(loginOrEmail == "reter" && pass == "reter") { 
+            admin = true;
+            }
+
+            if (admin == true)
+            {
+
+                Application.Current.Properties["UserName"] = LoginOrEmail.Text.Trim();
+                AdminMain adminMain = new AdminMain();  
+                adminMain.Show();
+                MainWindow.CloseMain();
+
+            }
         }
     }
 }

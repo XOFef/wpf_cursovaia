@@ -24,14 +24,14 @@
                         <ColumnDefinition Width="133*"/>
                         <ColumnDefinition Width="65*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Войти" HorizontalAlignment="Left" Margin="29,0,0,79" Width="200" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="100" VerticalAlignment="Bottom" BorderThickness="0"/>
+                    <Button Content="Войти" HorizontalAlignment="Left" Margin="29,0,0,79" Width="200" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="100" VerticalAlignment="Bottom" BorderThickness="0" Click="Button_Click_entrance"/>
                     <Button Margin="0,0,30,99" Background="White" BorderThickness="0" FontSize="20" Height="60" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click" Grid.ColumnSpan="2" >
                         <TextBlock Foreground="#FF1F4B43" >
                             <Underline>Забыли пароль?</Underline>
                         </TextBlock>
                     </Button>
-                    <TextBox x:Name="Login" Margin="0,140,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="535"/>
-                    <PasswordBox Margin="29,0,0,278" BorderThickness="5" Height="50" VerticalAlignment="Bottom" FontSize="26" BorderBrush="#FF8AD4C7" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="535"/>
+                    <TextBox x:Name="LoginOrEmail" Margin="0,140,30,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" BorderThickness="5" FontSize="26" BorderBrush="#FF8AD4C7" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="535"/>
+                    <PasswordBox x:Name="password" Margin="0,0,30,278" BorderThickness="5" Height="50" VerticalAlignment="Bottom" FontSize="26" BorderBrush="#FF8AD4C7" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="535"/>
                     <TextBlock HorizontalAlignment="Left" Margin="29,0,0,329" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Bottom" FontWeight="Bold" Foreground="#FF1F4B43"/>
                     <TextBlock Margin="29,100,75,0" TextWrapping="Wrap" Text="Логин или email" FontWeight="Bold" Foreground="#FF1F4B43" Height="45" VerticalAlignment="Top"/>
                 </Grid>
