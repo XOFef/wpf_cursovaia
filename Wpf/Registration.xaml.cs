@@ -231,7 +231,7 @@ namespace Wpf
                 TextBoxAge.BorderBrush = Brushes.Red;
                 TextBoxAge.ToolTip = "Вы не ввели возраст!";
             }
-
+            
         }
 
 
@@ -257,5 +257,7 @@ namespace Wpf
 
             }
         }
+
+        
     }
 }

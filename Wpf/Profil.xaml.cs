@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace Wpf
 {
-    /// <summary>
-    /// Логика взаимодействия для Profil.xaml
-    /// </summary>
+    
     public partial class Profil : Window
     {
         public Profil()
@@ -25,6 +23,12 @@ namespace Wpf
             var userName = Application.Current.Properties["UserName"] as string;
             Nameuser.Text = userName;
         }
-        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMain adminMain = new AdminMain();
+            adminMain.Show();
+            this.Close();
+        }
     }
 }
