@@ -62,8 +62,11 @@
     <Compile Include="lossPassword.xaml.cs">
       <DependentUpon>lossPassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profil.xaml.cs">
-      <DependentUpon>Profil.xaml</DependentUpon>
+    <Compile Include="ProfilAdmin.xaml.cs">
+      <DependentUpon>ProfilAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="profilUser.xaml.cs">
+      <DependentUpon>profilUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
@@ -88,7 +91,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Profil.xaml">
+    <Page Include="ProfilAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="profilUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

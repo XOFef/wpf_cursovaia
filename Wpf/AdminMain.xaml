@@ -10,7 +10,7 @@
         <StackPanel x:Name="UpPannel" Background="#FF8AD4C7" Height="200" VerticalAlignment="Top">
             <Image  Height="150" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,25,0,25" Stretch="Fill" Source="/1.jpg"/>
         </StackPanel>
-        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand"   >
+        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand" Click="Button_Click"   >
             <Button.Background>
                 <ImageBrush ImageSource="/Keqing.jpg" />
             </Button.Background>

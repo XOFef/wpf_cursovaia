@@ -40,29 +40,7 @@ F:\visual project\Wpf\obj\Debug\Wpf.exe
 F:\visual project\Wpf\obj\Debug\Wpf.pdb
 F:\visual project\Wpf\obj\Debug\AdminMain.g.cs
 F:\visual project\Wpf\obj\Debug\AdminMain.baml
-F:\visual project\Wpf\obj\Debug\Profil.g.cs
-F:\visual project\Wpf\obj\Debug\Profil.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\bin\Debug\Wpf.exe.config
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\bin\Debug\Wpf.exe
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\bin\Debug\Wpf.pdb
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.csproj.AssemblyReference.cache
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\AdminMain.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\lossPassword.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\MainWindow.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Profil.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Registration.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\App.g.cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf_MarkupCompile.cache
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf_MarkupCompile.lref
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\App.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\AdminMain.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\lossPassword.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\MainWindow.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Profil.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Registration.baml
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.g.resources
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.Properties.Resources.resources
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.csproj.GenerateResource.cache
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.csproj.CoreCompileInputs.cache
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.exe
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\Wpf.pdb
+F:\visual project\Wpf\obj\Debug\ProfilAdmin.g.cs
+F:\visual project\Wpf\obj\Debug\ProfilAdmin.baml
+F:\visual project\Wpf\obj\Debug\profilUser.g.cs
+F:\visual project\Wpf\obj\Debug\profilUser.baml

@@ -15,28 +15,20 @@ using System.Windows.Shapes;
 namespace Wpf
 {
     /// <summary>
-    /// Логика взаимодействия для AdminMain.xaml
+    /// Логика взаимодействия для ProfilAdmin.xaml
     /// </summary>
-    public partial class AdminMain : Window
+    public partial class ProfilAdmin : Window
     {
-        public AdminMain()
+        public ProfilAdmin()
         {
             InitializeComponent();
-        }
-
-
-
-        private void Button_Click_Profil(object sender, RoutedEventArgs e)
-        {
-            ProfilAdmin prof = new ProfilAdmin();
-            prof.Show();
-            this.Close();
+            Nameuser.Text = (string)Application.Current.Properties["UserName"];
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProfilAdmin prof = new ProfilAdmin();
-            prof.Show();
+            AdminMain adMain = new AdminMain();
+            adMain.Show();
             this.Close();
         }
     }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\obj\Debug\
+F:\visual project\Wpf\obj\Debug\
 Wpf
 none
 false
 DEBUG;TRACE
-C:\Users\root\Source\Repos\wpf_cursovaia\Wpf\App.xaml
-5-1689689372
+F:\visual project\Wpf\App.xaml
+6-1038646468
 
-91448162970
+102059712846
 14-2011955616
-AdminMain.xaml;lossPassword.xaml;MainWindow.xaml;Profil.xaml;Registration.xaml;
+AdminMain.xaml;lossPassword.xaml;MainWindow.xaml;ProfilAdmin.xaml;profilUser.xaml;Registration.xaml;
 
 False
 
