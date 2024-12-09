@@ -31,5 +31,14 @@ namespace Wpf
             adMain.Show();
             this.Close();
         }
+
+        private void Button_Click_TestBild(object sender, RoutedEventArgs e)
+        {
+            TestBild test = new TestBild();
+            test.Show();
+            this.Close();
+        }
+
+
     }
 }

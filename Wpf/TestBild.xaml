@@ -1,0 +1,129 @@
+﻿<Window x:Class="Wpf.TestBild"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+           Title="Создание теста" Height="1080"  Width="1920"   WindowState="Maximized" Icon="/Keqing.jpg">
+    <Grid>
+        <StackPanel x:Name="UpPannel" Background="#FF8AD4C7" Height="200" VerticalAlignment="Top">
+            <Image  Height="150" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,25,0,25" Stretch="Fill" Source="/1.jpg"/>
+        </StackPanel>
+        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand" Click="Button_Click_Profil"   >
+            <Button.Background>
+                <ImageBrush ImageSource="/Keqing.jpg" />
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="80" Margin="460,60,0,60" Content="Случайный тест" FontSize="28" FontWeight="Bold" Cursor="Hand" />
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="80" Margin="790,60,0,60" Content="Категории" FontSize="28" FontWeight="Bold" Cursor="Hand"/>
+        <Button Style="{StaticResource imageButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Margin="1120,60,0,60" Foreground="Black" BorderBrush="Black">
+            <Button.Background>
+                <ImageBrush  Stretch="UniformToFill" TileMode="None" ImageSource="/6cc9c5e57fd5ed22ebd4e8f4e3a5b4b4.png"/>
+            </Button.Background>
+        </Button>
+        <Grid VerticalAlignment="Top" Height="864" Margin="0,200,0,0">
+            <ScrollViewer HorizontalAlignment="Right">
+                <Grid>
+                    <Border Height="200" Width="1920" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="0,38,0,0">
+                        <Grid Width="1920" Height="200">
+                            <TextBlock TextAlignment="Center"  Text="Шаг 1: Вступление" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="446" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                            <TextBlock TextAlignment="Center"  Text=" Заголовок, описание и картинка. Ненужные элементы можно отключить." HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="1124" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid Height="915" Width="1800" VerticalAlignment="Top" Margin="0,280,0,0" Background="#8AD4C7" >
+                        <TextBlock TextAlignment="Center"  Text="Заголовок" HorizontalAlignment="Left" Margin="50,22,0,0" VerticalAlignment="Top" Width="158" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        <TextBox Width="1700" Margin="50,75,50,0" Height="81" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="36"/>
+                        <CheckBox x:Name="myCheckBoxTwo" Content="Описание теста" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,179,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Two" Unchecked="CheckBox_Unchecked_Two">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <TextBox x:Name="TextBox" IsEnabled="False" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="1700" Margin="50,240,50,0" Height="236" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="24"/>
+                        <CheckBox x:Name="myCheckBox" Content="Фотография" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,505,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button x:Name="buttonImage" IsEnabled="False" Width="400" Height="100" HorizontalAlignment="Left" Margin="50,345,0,0" Content="Выбрать изображение" Background="White" BorderThickness="3" BorderBrush="black" FontSize="22" Click="Button_Click"/>
+                        <Image x:Name="imageControl" Visibility="Collapsed" Width="200" Height="200" HorizontalAlignment="Left" Margin="50,685,0,0"/>
+                    </Grid>
+
+                    <Border Height="200" Width="1920" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="0,1250,0,0">
+                        <Grid Width="1920" Height="200">
+                            <TextBlock TextAlignment="Center"  Text="Шаг 2: Вопросы и ответы" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="446" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                            <TextBlock TextAlignment="Center"  Text=" На этом шаге мы пишем вопросы и варианты ответа. " HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="1124" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid x:Name="gridTest" Height="1298" Width="1800" VerticalAlignment="Top" Margin="0,1480,0,0" Background="#8AD4C7" >
+                        <StackPanel Height="100" Background="#319281" VerticalAlignment="Top">
+                            <TextBlock Text="Вопрос №1" HorizontalAlignment="Left" Height="51" Width="240" FontSize="36" TextAlignment="Center" Background="#319281" Foreground="White" VerticalAlignment="Top" Margin="0,26,0,0"/>
+                            <Button Width="50" Height="50" HorizontalAlignment="Right" Margin="0,-60,20,0" Click="Button_Click_clear">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/🦆 icon _trash full_.png"/>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                        <TextBox x:Name="txt" Height="81" Width="1700" BorderBrush="Black" Foreground="LightGray" BorderThickness="3" VerticalAlignment="Top" Margin="0,163,0,0" FontSize="36" Text="текст вопроса" GotFocus="MyTextBox_GotFocus" LostFocus="MyTextBox_LostFocus"/>
+                        <CheckBox x:Name="myCheckBoxtest" Content="Фотография" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,275,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Test" Unchecked="CheckBox_Unchecked_Test">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button x:Name="buttonImageTest" IsEnabled="False" Width="400" Height="100" HorizontalAlignment="Left" Margin="50,352,0,0" Content="Выбрать изображение" Background="White" BorderThickness="3" BorderBrush="black" FontSize="22" Click="Button_Click_Test" VerticalAlignment="Top"/>
+                        <Image x:Name="imageControltest" Visibility="Collapsed" Width="200" Height="200" HorizontalAlignment="Left" Margin="50,485,0,0" VerticalAlignment="Top"/>
+                        <TextBlock Height="50" Width="200" Text="Ответы" HorizontalAlignment="Left" Margin="50,690,0,0" VerticalAlignment="Top" FontSize="36"/>
+                        <TextBox x:Name="txtAwnser" Height="81" Width="550" BorderBrush="Black" Foreground="LightGray" BorderThickness="3" VerticalAlignment="Top" Margin="50,745,0,0" FontSize="36" Text="Текст ответа" GotFocus="MyTextBox_GotFocus_Awnser" LostFocus="MyTextBox_LostFocus_Awnser" HorizontalAlignment="Left"/>
+                        <CheckBox x:Name="myCheckBoxAwnser" Content="Правильный" BorderBrush="Black" HorizontalAlignment="Left" Margin="650,760,0,0" VerticalAlignment="Top" Height="19" Width="109">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button Height="80" Width="920" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,855,0,0" BorderBrush="Black" BorderThickness="3" Content="Добавить вариант" Background="White" FontSize="36"/>
+                        <Button Height="100" Content="+ Добавить ещё один вопрос" VerticalAlignment="Top" Margin="0,1001,0,0" Background="#319281" Foreground="White" FontSize="36"/>
+                    </Grid>
+
+                    <Border Height="200" Width="1920" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="0,2850,0,0">
+                        <Grid Width="1920" Height="200">
+                            <TextBlock TextAlignment="Center"  Text="Шаг 3: Результаты" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="446" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                            <TextBlock TextAlignment="Center"  Text="На этом шаге мы пишем все возможные результаты теста." HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="1124" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid x:Name="gridResult" Height="1298" Width="1800" VerticalAlignment="Top" Margin="0,3100,0,0" Background="#8AD4C7" >
+                        <StackPanel Height="100" Background="#319281" VerticalAlignment="Top">
+                            <TextBlock Text="Результат №1     от" HorizontalAlignment="Left" Height="51" Width="330" FontSize="36" TextAlignment="Center" Background="#319281" Foreground="White" VerticalAlignment="Top" Margin="0,26,0,0"/>
+                            <TextBox Height="60" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="335,-55,0,0" FontSize="36" />
+                            <TextBlock Text="до" HorizontalAlignment="Left" Height="51" Width="70" FontSize="36" TextAlignment="Center" Background="#319281" Foreground="White" VerticalAlignment="Top" Margin="450,-60,0,0"/>
+                            <TextBox Height="60" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,-60,0,0" FontSize="36" />
+                            <Button Width="50" Height="50" HorizontalAlignment="Right" Margin="0,-60,20,0" Click="Button_Click_clear">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/🦆 icon _trash full_.png"/>
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                        <TextBlock TextAlignment="Center"  Text="Заголовок" HorizontalAlignment="Left" Margin="50,130,0,0" VerticalAlignment="Top" Width="158" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        <TextBox Width="1700" Margin="50,175,50,0" Height="81" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="36"/>
+                        <CheckBox x:Name="myCheckBoxTwoResult" Content="Описание теста" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,290,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Two_Result" Unchecked="CheckBox_Unchecked_Two_Result">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <TextBox x:Name="TextBoxResult" IsEnabled="False" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="1700" Margin="50,350,50,0" Height="236" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="24"/>
+                        <CheckBox x:Name="myCheckBoxResult" Content="Фотография" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,620,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Result" Unchecked="CheckBox_Unchecked_Result">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button x:Name="buttonImageResult" IsEnabled="False" Width="400" Height="100" HorizontalAlignment="Left" Margin="50,175,0,0" Content="Выбрать изображение" Background="White" BorderThickness="3" BorderBrush="black" FontSize="22" Click="Button_Click_Result"/>
+                        <Image x:Name="imageControlResult" Visibility="Collapsed" Width="200" Height="200" HorizontalAlignment="Left" Margin="50,535,0,0"/>
+                        <Button Height="100" Content="+ Добавить ещё один результат" VerticalAlignment="Top" Margin="0,1040,0,0" Background="#319281" Foreground="White" FontSize="36"/>
+                    </Grid>
+                </Grid>
+
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

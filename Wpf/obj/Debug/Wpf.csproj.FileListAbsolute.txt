@@ -44,3 +44,5 @@ F:\visual project\Wpf\obj\Debug\ProfilAdmin.g.cs
 F:\visual project\Wpf\obj\Debug\ProfilAdmin.baml
 F:\visual project\Wpf\obj\Debug\profilUser.g.cs
 F:\visual project\Wpf\obj\Debug\profilUser.baml
+F:\visual project\Wpf\obj\Debug\TestBild.g.cs
+F:\visual project\Wpf\obj\Debug\TestBild.baml

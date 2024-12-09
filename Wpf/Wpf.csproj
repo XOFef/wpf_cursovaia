@@ -71,6 +71,9 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestBild.xaml.cs">
+      <DependentUpon>TestBild.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdminMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBild.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="6cc9c5e57fd5ed22ebd4e8f4e3a5b4b4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="🦆 icon _trash full_.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

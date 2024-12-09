@@ -35,8 +35,8 @@ namespace Wpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ProfilAdmin prof = new ProfilAdmin();
-            prof.Show();
+            TestBild test = new TestBild();
+            test.Show();
             this.Close();
         }
     }

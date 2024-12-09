@@ -37,7 +37,7 @@
             <Grid Height="100" Margin="131,383,125,0" VerticalAlignment="Top">
                 <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
                     <Grid Width="1664" Height="100">
-                        <Button Width="1664" Height="100" Content="Создать"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#FF8AD4C7" FontSize="28" FontWeight="Bold" Cursor="Hand" />
+                        <Button Width="1664" Height="100" Content="Создать"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="#FF8AD4C7" FontSize="28" FontWeight="Bold" Cursor="Hand" Click="Button_Click_TestBild" />
 
                     </Grid>
                 </Border>
