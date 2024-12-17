@@ -11,11 +11,11 @@
     <Grid>
 
         <TabControl>
-            <TabItem Header="Вход" Width="282" HorizontalAlignment="Left" Margin="0,0,0,0" FontWeight="Bold" Foreground="#FF1F4B43">
+            <TabItem  Header="Вход" Width="600" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF1F4B43" VerticalAlignment="Center">
                 <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1">
+                    <LinearGradientBrush  EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
-                        <GradientStop Color="#FF8AD4C7" Offset="1"/>
+                        <GradientStop Color="#FF8AD4C7" Offset="2"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
 
@@ -24,7 +24,7 @@
                         <ColumnDefinition Width="133*"/>
                         <ColumnDefinition Width="65*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Войти" HorizontalAlignment="Left" Margin="29,0,0,79" Width="200" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="100" VerticalAlignment="Bottom" BorderThickness="0" Click="Button_Click_entrance"/>
+                    <Button  Content="Войти" HorizontalAlignment="Left" Margin="29,0,0,79" Width="200" Background="#FF8AD4C7" FontSize="30" FontWeight="Bold" Foreground="White" Height="100" VerticalAlignment="Bottom" BorderThickness="0" Click="Button_Click_entrance"/>
                     <Button Margin="0,0,30,99" Background="White" BorderThickness="0" FontSize="20" Height="60" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click" Grid.ColumnSpan="2" >
                         <TextBlock Foreground="#FF1F4B43" >
                             <Underline>Забыли пароль?</Underline>

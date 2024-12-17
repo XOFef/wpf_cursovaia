@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,6 +39,32 @@ namespace Wpf
         {
             Instance?.Close();
         }
+
+        // запрет на ввод букв
+        private new void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        // запрет на вставку символов кроме цифр
+        private void TextBox_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(String)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(String));
+                Regex regex = new Regex("[^0-9]+");
+                if (regex.IsMatch(text) == true)
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
+
     }
 
 }

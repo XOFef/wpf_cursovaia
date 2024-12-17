@@ -11,13 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Microsoft.Win32; 
+using Microsoft.Win32;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Data;
 
 
 namespace Wpf
 {
     public partial class TestBild : Window
     {
+
+        DataBase _dataBase = new DataBase();
         public TestBild()
         {
             InitializeComponent();
@@ -57,7 +64,7 @@ namespace Wpf
             TextBox.IsEnabled = false;
         }
 
-        // Функция для открытия обзора файлов
+        //Функция для открытия обзора файлов
         private void OpenImageFileDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -70,130 +77,86 @@ namespace Wpf
                 imageControl.Source = new BitmapImage(new Uri(filePath));
             }
         }
+
+
+
+        private byte[] BitmapSourceToByteArray(BitmapSource image)
+        {
+            using (var stream = new MemoryStream())
+            {
+                var encoder = new PngBitmapEncoder(); // or some other encoder
+                encoder.Frames.Add(BitmapFrame.Create(image));
+                encoder.Save(stream);
+                return stream.ToArray();
+            }
+        }
+
+
+
+
+
+
+
+
         // Кнопка для выбора изображения
         private void Button_Click(object sender, RoutedEventArgs e)
         {
                 OpenImageFileDialog();
         }
 
-
-        // ТЕСТ
-        // Взаимодействие с текстбокс (когда фокус)
-        private void MyTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txt.Text == "текст вопроса")
-            {
-                txt.Text = "";
-                txt.Foreground = Brushes.Black; // Меняем цвет текста на черный при фокусе
-            }
-        }
-        // Взаимодействие с текстбокс (когда нет фокуса)
-        private void MyTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                txt.Text = "текст вопроса";
-                txt.Foreground = Brushes.LightGray; // Возвращаем светло-серый цвет
-            }
-        }
-        // Чекбокс изображения 
-        // когда галочка
-        private void CheckBox_Checked_Test(object sender, RoutedEventArgs e)
-        {
-            buttonImageTest.IsEnabled = true;
-            imageControltest.Visibility = Visibility.Visible;
-        }
-        // когда нет галочки
-        private void CheckBox_Unchecked_Test(object sender, RoutedEventArgs e)
-        {
-            buttonImageTest.IsEnabled = false;
-            imageControltest.Visibility = Visibility.Collapsed;
-        }
-        // Функция для открытия обзора файлов
-        private void OpenImageFileDialogTest()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            // Показываем диалог и проверяем, был ли выбран файл
-            if (openFileDialog.ShowDialog() == true)
-            {
-                string filePath = openFileDialog.FileName;
-                imageControltest.Source = new BitmapImage(new Uri(filePath));
-            }
-        }
-        // Кнопка для выбора изображения
-        private void Button_Click_Test(object sender, RoutedEventArgs e)
-        {
-            OpenImageFileDialogTest();
-        }
-        // Кнопка для очистки
-        private void Button_Click_clear(object sender, RoutedEventArgs e)
-        {
-           txt.Clear();
-           txt.Text = "текст вопроса";
-           txt.Foreground = Brushes.LightGray;
-        }
-        // Взаимодействие с текстбокс (когда фокус)
-        private void MyTextBox_GotFocus_Awnser(object sender, RoutedEventArgs e)
-        {
-            if (txtAwnser.Text == "Текст ответа")
-            {
-                txtAwnser.Text = "";
-                txtAwnser.Foreground = Brushes.Black; // Меняем цвет текста на черный при фокусе
-            }
-        }
-        // Взаимодействие с текстбокс (когда нет фокуса)
-        private void MyTextBox_LostFocus_Awnser(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtAwnser.Text))
-            {
-                txtAwnser.Text = "Текст ответа";
-                txtAwnser.Foreground = Brushes.LightGray; // Возвращаем светло-серый цвет
-            }
+            AdminMain admin = new AdminMain();
+            admin.Show();
+            this.Close();
         }
 
-        // РЕЗУЛЬТАТ
-        // Чекбокс изображения 
-        // когда галочка
-        private void CheckBox_Checked_Result(object sender, RoutedEventArgs e)
+        private void Button_Click_Next(object sender, RoutedEventArgs e)
         {
-            buttonImageResult.IsEnabled = true;
-            imageControlResult.Visibility = Visibility.Visible;
-        }
-        // когда нет галочки
-        private void CheckBox_Unchecked_Result(object sender, RoutedEventArgs e)
-        {
-            buttonImageResult.IsEnabled = false;
-            imageControlResult.Visibility = Visibility.Collapsed;
-        }
-        // Чекбокс описания
-        // когда галочка
-        private void CheckBox_Checked_Two_Result(object sender, RoutedEventArgs e)
-        {
-            TextBoxResult.IsEnabled = true;
-        }
-        // когда нет галочки
-        private void CheckBox_Unchecked_Two_Result(object sender, RoutedEventArgs e)
-        {
-            TextBoxResult.IsEnabled = false;
-        }
-        // Функция для открытия обзора файлов
-        private void OpenImageFileDialogResult()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            // Показываем диалог и проверяем, был ли выбран файл
-            if (openFileDialog.ShowDialog() == true)
+            var Title = Name.Text;
+            string Description = TextBox.Text;
+            int userId;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+            string querystringadmin = $"select ID from Users where Email = '{(string)Application.Current.Properties["UserName"]}' ";
+            SqlCommand command = new SqlCommand(querystringadmin, _dataBase.getConnection());
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            _dataBase.openConnection();
+            using (SqlDataReader reader = command.ExecuteReader())
             {
-                string filePath = openFileDialog.FileName;
-                imageControlResult.Source = new BitmapImage(new Uri(filePath));
+                if (reader.Read())
+                {
+                    userId = reader.GetInt32(0);                                 
+                }
+                else
+                {
+                    userId = -1; 
+                }
             }
-        }
-        // Кнопка для выбора изображения
-        private void Button_Click_Result(object sender, RoutedEventArgs e)
-        {
-            OpenImageFileDialogResult();
-        }
+            string querystring;
+            if (string.IsNullOrEmpty(Description) && imageControl.Source == null)
+            {
+                querystring = $"INSERT INTO Tests(Title, CreatedBy) VALUES('{Title}', '{userId}')";
+            }
+            else if (imageControl.Source != null)
+            {
+                var imageBuffer = BitmapSourceToByteArray((BitmapSource)imageControl.Source);
+                querystring = $"INSERT INTO Tests(Title, Description, Photo, CreatedBy) VALUES('{Title}', '{Description}', '{imageBuffer}', '{userId}')";
+            }
+            else
+            {
+                querystring = $"INSERT INTO Tests(Title, Description, CreatedBy) VALUES('{Title}', '{Description}', '{userId}')";
+            }
+            SqlCommand cmd = new SqlCommand(querystring, _dataBase.getConnection());      
+            cmd.ExecuteNonQuery();
+            
+            Application.Current.Properties["Test"] = Title;
+            _dataBase.closeConnection();
 
+            TestBildTwo testBildTwo = new TestBildTwo();
+            testBildTwo.Show();
+            this.Close();
+        }
     }
 }

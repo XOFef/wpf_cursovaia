@@ -12,17 +12,18 @@
         </StackPanel>
         <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand" Click="Button_Click_Profil"   >
             <Button.Background>
-                <ImageBrush ImageSource="/Keqing.jpg" />
+                <ImageBrush ImageSource="/img_508630.png" />
             </Button.Background>
         </Button>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="80" Margin="460,60,0,60" Content="Случайный тест" FontSize="28" FontWeight="Bold" Cursor="Hand" />
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="300" Height="80" Margin="790,60,0,60" Content="Категории" FontSize="28" FontWeight="Bold" Cursor="Hand"/>
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="300" Height="80" Margin="790,60,173,60" Content="Создать" FontSize="28" FontWeight="Bold" Cursor="Hand" Click="Button_Click"/>
         <Button Style="{StaticResource imageButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Margin="1120,60,0,60" Foreground="Black" BorderBrush="Black">
             <Button.Background>
                 <ImageBrush  Stretch="UniformToFill" TileMode="None" ImageSource="/6cc9c5e57fd5ed22ebd4e8f4e3a5b4b4.png"/>
             </Button.Background>
         </Button>
+        <TextBox Width="270" Margin="0,71,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="38" BorderBrush="Black" BorderThickness="2" PreviewTextInput="PreviewTextInput" DataObject.Pasting="TextBox_Pasting"/>
+        <TextBlock Width="270" Margin="549,76,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Введите ID теста:" FontSize="34"/>
+
 
 
     </Grid>
