@@ -24,12 +24,12 @@
                     <Grid Height="120" Width="825">
                         <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="100" Margin="31,10,30,10" Cursor="Hand"   >
                             <Button.Background>
-                                <ImageBrush ImageSource="/Keqing.jpg" />
+                                <ImageBrush ImageSource="/img_508630.png" />
                             </Button.Background>
                         </Button>
                         <TextBlock x:Name="Nameuser" TextAlignment="Center"  Text="UserName" HorizontalAlignment="Left" Margin="170,31,0,30" VerticalAlignment="Center" Width="445" Height="60" FontSize="30"/>
                     </Grid>
-                    
+
                 </Border>
             </Grid>
 
@@ -44,39 +44,44 @@
 
             <Grid Height="100" Margin="131,519,125,0" VerticalAlignment="Top" Width="820" HorizontalAlignment="Left">
                 <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
-                    <Grid Width="1664" Height="100">
-                        <TextBlock TextAlignment="Center"  Text="Cозданные тесты" HorizontalAlignment="Left" Margin="170,31,0,30" VerticalAlignment="Center" Width="445" Height="60" FontSize="30"/>
+                    <Grid Width="818" Height="100">
+                        <TextBlock TextAlignment="Center"  Text="Ваш последний созданный тест" HorizontalAlignment="Left" Margin="170,31,0,30" VerticalAlignment="Center" Width="445" Height="60" FontSize="30"/>
+                    </Grid>
+                </Border>
+            </Grid>
 
+            <Grid Height="100" Margin="0,519,110,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="820">
+                <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
+                    <Grid Width="818" Height="100">
+                        <TextBlock TextAlignment="Center"  Text="Список ваших тестов" HorizontalAlignment="Left" Margin="170,31,0,30" VerticalAlignment="Center" Width="445" Height="60" FontSize="30"/>
                     </Grid>
                 </Border>
             </Grid>
 
             <Grid Margin="0,654,0,0">
                 <ScrollViewer>
-                    <Grid Height="456">
+                    <Grid Height="620">
 
                         <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="140,0,0,0">
                             <Grid Width="500" Height="500">
-
+                                <TextBlock x:Name="TestName" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"  Text="Здесь будет ваш тест" Height="60" VerticalAlignment="Top" FontSize="36"/>
+                                <Image x:Name="PhotoTest" Width="400" Margin="50,60,50,0" Height="200" VerticalAlignment="Top" Source="/6980409107.jpg"/>
+                                <TextBlock x:Name="Description" Margin="0,281,0,0" Height="209" VerticalAlignment="Top" Text="Без описания" FontSize="30"/>
                             </Grid>
                         </Border>
 
-
-
-                        <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="710,0,0,0">
-                            <Grid Width="500" Height="500">
-
+                        <Border VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="0,0,92,0" HorizontalAlignment="Right" Width="820">
+                            <Grid Height="500">
+                                <ListView x:Name="listviewUsers" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Header="ID" Width="200" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Header="Название" Width="620"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
                             </Grid>
                         </Border>
-
-
-
-                        <Border  BorderBrush="Black" BorderThickness="2" Margin="1280,0,0,0" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="500">
-                            <Grid Width="500" Height="500" HorizontalAlignment="Right">
-
-                            </Grid>
-                        </Border>
-
                     </Grid>
 
                 </ScrollViewer>

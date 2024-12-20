@@ -17,13 +17,22 @@
                 <ImageBrush ImageSource="/img_508630.png" />
             </Button.Background>
         </Button>
-        <Button Style="{StaticResource imageButton}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Margin="1120,60,0,60" Foreground="Black" BorderBrush="Black">
+        <Button Style="{StaticResource imageButton}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Height="80" Margin="1120,60,0,60" Foreground="Black" BorderBrush="Black" Click="Button_Click_FoundId">
             <Button.Background>
                 <ImageBrush  Stretch="UniformToFill" TileMode="None" ImageSource="/6cc9c5e57fd5ed22ebd4e8f4e3a5b4b4.png"/>
             </Button.Background>
         </Button>
-        <TextBox Width="270" Margin="0,71,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="38" BorderBrush="Black" BorderThickness="2" PreviewTextInput="PreviewTextInput" DataObject.Pasting="TextBox_Pasting"/>
+        <TextBox x:Name = "TestID" Width="270" Margin="0,71,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="38" BorderBrush="Black" BorderThickness="2" PreviewTextInput="PreviewTextInput" DataObject.Pasting="TextBox_Pasting"/>
         <TextBlock Width="270" Margin="549,76,0,0" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Введите ID теста:" FontSize="34"/>
-
+        <Grid Margin="0,200,0,0">
+            <Border BorderBrush="{x:Null}" Height="100" Margin="100,50,100,0" VerticalAlignment="Top" Width="650">
+                <TextBlock x:Name="Title" TextAlignment="Center" Text="Название теста" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="48"/>
+            </Border>
+            <Image x:Name="TestPhoto" Height="500" Width="500" HorizontalAlignment="Left" Margin="50,0,0,0" Source="/6980409107.jpg"/>
+            <Grid Height="530" Width="1000" HorizontalAlignment="Right" Margin="0,0,50,0">
+                <TextBlock x:Name="TestDes" FontSize="24" Text="Описание"/>
+            </Grid>
+            <Button x:Name="GoTest" Height="100" Width="300" Background="#FF8AD4C7" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,50,25" FontSize="36" Content="Начать" FontWeight="Bold" Click="GoTest_Click"/>
+        </Grid>
     </Grid>
 </Window>

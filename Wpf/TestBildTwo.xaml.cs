@@ -32,13 +32,6 @@ namespace Wpf
             question.Text = questionBox;
         }
 
-        private void Button_Click_Profil(object sender, RoutedEventArgs e)
-        {
-            AdminMain admin = new AdminMain();
-            admin.Show();
-            this.Close();
-        }
-
         // ТЕСТ
         // Взаимодействие с текстбокс (когда фокус)
         private void MyTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -105,40 +98,60 @@ namespace Wpf
         private void db_test()
         {
             var question = txt.Text;
-            string querystring = null;
-            int testID;
+            int testID = -1; // Инициализируем testID значением по умолчанию
+
             _dataBase.openConnection();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string querystringTest = $"select ID from Tests where Title = '{(string)Application.Current.Properties["Test"]}' ";
-            SqlCommand command = new SqlCommand(querystringTest, _dataBase.getConnection());
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            
-            using (SqlDataReader reader = command.ExecuteReader())
+            string querystringTest = "SELECT ID FROM Tests WHERE Title = @TestTitle";
+
+            using (SqlCommand command = new SqlCommand(querystringTest, _dataBase.getConnection()))
             {
-                if (reader.Read())
+                // Добавляем параметр для предотвращения SQL-инъекций
+                command.Parameters.AddWithValue("@TestTitle", (string)Application.Current.Properties["Test"]);
+
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    testID = reader.GetInt32(0);
+                    if (reader.Read())
+                    {
+                        testID = reader.GetInt32(0);
+                    }
+                }
+            }
+
+            // Проверяем, был ли найден testID
+            if (testID == -1)
+            {
+                // Обработка случая, когда тест не найден
+                // Например, можно выбросить исключение или показать сообщение пользователю
+                throw new Exception("Тест не найден.");
+            }
+
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.Connection = _dataBase.getConnection();
+
+                // Определяем запрос в зависимости от наличия изображения
+                if (imageControltest.Source == null)
+                {
+                    cmd.CommandText = "INSERT INTO Questions(QuestionText, TestsID) VALUES(@QuestionText, @TestsID)";
+                    cmd.Parameters.AddWithValue("@QuestionText", question);
+                    cmd.Parameters.AddWithValue("@TestsID", testID);
                 }
                 else
                 {
-                    testID = -1;
+                    var imageBuffer = BitmapSourceToByteArray((BitmapSource)imageControltest.Source);
+                    cmd.CommandText = "INSERT INTO Questions(QuestionText, Photo, TestsID) VALUES(@QuestionText, @Photo, @TestsID)";
+                    cmd.Parameters.AddWithValue("@QuestionText", question);
+                    cmd.Parameters.AddWithValue("@Photo", imageBuffer);
+                    cmd.Parameters.AddWithValue("@TestsID", testID);
                 }
+
+                // Выполняем команду
+                cmd.ExecuteNonQuery();
             }
-            if (imageControltest.Source == null)
-            {
-                querystring = $"INSERT INTO Questions(QuestionText, TestsID) VALUES('{question}', '{testID}')";
-            }
-            else if (imageControltest.Source != null)
-            {
-                var imageBuffer = BitmapSourceToByteArray((BitmapSource)imageControltest.Source);
-                querystring = $"INSERT INTO Questions(QuestionText, Photo,TestsID) VALUES('{question}', '{imageBuffer}', '{testID}')";
-            }
-            _dataBase.openConnection();
-            SqlCommand cmd = new SqlCommand(querystring, _dataBase.getConnection());
-            cmd.ExecuteNonQuery();
+
+            // Закрываем соединение
             _dataBase.closeConnection();
+
         }
 
         private void db_test_Answers()
@@ -148,88 +161,52 @@ namespace Wpf
             var AnswersTree = txtAwnserTree.Text;
             var AnswersFour = txtAwnserFour.Text;
             var questName = txt.Text;
-            int questionID;
-            bool isCorrect = false;
+            int questionID = -1;
+
             _dataBase.openConnection();
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string querystringTest = $"select ID from Questions where QuestionText = '{questName}' ";
-            SqlCommand command = new SqlCommand(querystringTest, _dataBase.getConnection());
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            using (SqlDataReader reader = command.ExecuteReader())
+
+            string querystringTest = "SELECT ID FROM Questions WHERE QuestionText = @QuestionText";
+            using (SqlCommand command = new SqlCommand(querystringTest, _dataBase.getConnection()))
             {
-                if (reader.Read())
+                command.Parameters.AddWithValue("@QuestionText", questName);
+
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    questionID = reader.GetInt32(0);
-                }
-                else
-                {
-                    questionID = -1;
+                    if (reader.Read())
+                    {
+                        questionID = reader.GetInt32(0);
+                    }
                 }
             }
 
-            string querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{questName}', '{questionID}', '{isCorrect}')";
-
-            for (int i = 0; i < 4; i++)
+            // Проверяем, был ли найден questionID
+            if (questionID == -1)
             {
-                switch (i)
-                {
-                    case 0:
-                        if ((bool)myCheckBoxAwnserOne.IsChecked == true)
-                        {
-                            isCorrect = true;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersOne}', '{questionID}', '{isCorrect}')";
-                        }
-                        else
-                        {
-                            isCorrect = false;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersOne}', '{questionID}', '{isCorrect}')";
-                        }
-                        break;
-                    case 1:
-                        if ((bool)myCheckBoxAwnserTwo.IsChecked == true)
-                        {
-                            isCorrect = true;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersTwo}', '{questionID}', '{isCorrect}')";
-                        }
-                        else
-                        {
-                            isCorrect = false;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersTwo}', '{questionID}', '{isCorrect}')";
-                        }
-                        break;
-                    case 2:
-                        if ((bool)myCheckBoxAwnserTree.IsChecked == true)
-                        {
-                            isCorrect = true;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersTree}', '{questionID}', '{isCorrect}')";
-
-                        }
-                        else
-                        {
-                            isCorrect = false;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersTree}', '{questionID}', '{isCorrect}')";
-                        }
-                        break;
-                    case 3:
-                        if ((bool)myCheckBoxAwnserFour.IsChecked == true)
-                        {
-                            isCorrect = true;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersFour}', '{questionID}', '{isCorrect}')";
-
-                        }
-                        else
-                        {
-                            isCorrect = false;
-                            querystring = $"INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES('{AnswersFour}', '{questionID}', '{isCorrect}')";
-                        }
-                        break;
-                }
-                SqlCommand cmd = new SqlCommand(querystring, _dataBase.getConnection());
-                cmd.ExecuteNonQuery();
+                throw new Exception("Вопрос не найден.");
             }
+
+            // Создаем массив ответов и соответствующих чекбоксов
+            var answers = new[] { AnswersOne, AnswersTwo, AnswersTree, AnswersFour };
+            var checkBoxes = new[] { myCheckBoxAwnserOne, myCheckBoxAwnserTwo, myCheckBoxAwnserTree, myCheckBoxAwnserFour };
+
+            for (int i = 0; i < answers.Length; i++)
+            {
+                bool isCorrect = checkBoxes[i].IsChecked == true;
+
+                string querystring = "INSERT INTO Answers(AnswerText, QuestionsID, IsCorrect) VALUES(@AnswerText, @QuestionsID, @IsCorrect)";
+
+                using (SqlCommand cmd = new SqlCommand(querystring, _dataBase.getConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@AnswerText", answers[i]);
+                    cmd.Parameters.AddWithValue("@QuestionsID", questionID);
+                    cmd.Parameters.AddWithValue("@IsCorrect", isCorrect);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
             _dataBase.closeConnection();
+
         }
 
 
@@ -288,5 +265,17 @@ namespace Wpf
             main.Show();
             this.Close();
         }
+
+        private void Button_Click_Next(object sender, RoutedEventArgs e)
+        {
+            db_test();
+            db_test_Answers();
+
+            TestBildTree testBildTree = new TestBildTree();
+            testBildTree.Show();
+            this.Close();
+        }
+
+
     }
 }

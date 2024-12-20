@@ -13,7 +13,7 @@
             <Image  Height="150" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,25,0,25" Stretch="Fill" Source="/1.jpg"/>
         </StackPanel>
         <TextBlock Width="541" Margin="55,55,0,0" Height="86" VerticalAlignment="Top" Text="Создание теста" FontSize="72" FontWeight="Bold"/>
-        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand" Click="Button_Click_Profil"   >
+        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="/img_508630.png" />
             </Button.Background>
@@ -73,7 +73,7 @@
                     <Grid Margin="0,1600,0,0">
                         <Button Width="355" Margin="50,10,0,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Отмена" FontSize="36" FontWeight="Bold" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Click="Button_Click_Delete" />
                         <Button Margin="0,10,425,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Назад" FontSize="36" FontWeight="Bold" HorizontalAlignment="Right" Width="355" Height="100" VerticalAlignment="Top" Click="Button_Click_Back" />
-                        <Button Margin="0,10,50,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Далее" FontSize="36" FontWeight="Bold" HorizontalAlignment="Right" Width="355" Height="100" VerticalAlignment="Top" />
+                        <Button Margin="0,10,50,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Далее" FontSize="36" FontWeight="Bold" HorizontalAlignment="Right" Width="355" Height="100" VerticalAlignment="Top" Click="Button_Click_Next" />
                     </Grid>
                 </Grid>
             </ScrollViewer>

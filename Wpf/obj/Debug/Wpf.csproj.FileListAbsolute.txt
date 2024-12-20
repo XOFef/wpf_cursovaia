@@ -46,3 +46,9 @@ F:\visual project\Wpf\obj\Debug\TestBild.g.cs
 F:\visual project\Wpf\obj\Debug\TestBild.baml
 F:\visual project\Wpf\obj\Debug\TestBildTwo.g.cs
 F:\visual project\Wpf\obj\Debug\TestBildTwo.baml
+F:\visual project\Wpf\obj\Debug\TestBildTree.g.cs
+F:\visual project\Wpf\obj\Debug\TestBildTree.baml
+F:\visual project\Wpf\obj\Debug\Test.g.cs
+F:\visual project\Wpf\obj\Debug\Test.baml
+F:\visual project\Wpf\obj\Debug\Result.g.cs
+F:\visual project\Wpf\obj\Debug\Result.baml

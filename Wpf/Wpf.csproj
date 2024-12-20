@@ -70,8 +70,17 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Result.xaml.cs">
+      <DependentUpon>Result.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestBild.xaml.cs">
       <DependentUpon>TestBild.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestBildTree.xaml.cs">
+      <DependentUpon>TestBildTree.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestBildTwo.xaml.cs">
       <DependentUpon>TestBildTwo.xaml</DependentUpon>
@@ -104,7 +113,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Result.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TestBild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestBildTree.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,6 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Keqing.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="6980409107.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

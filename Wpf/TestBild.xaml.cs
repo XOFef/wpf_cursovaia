@@ -135,28 +135,47 @@ namespace Wpf
                 }
             }
             string querystring;
-            if (string.IsNullOrEmpty(Description) && imageControl.Source == null)
+            using (SqlCommand cmd = new SqlCommand())
             {
-                querystring = $"INSERT INTO Tests(Title, CreatedBy) VALUES('{Title}', '{userId}')";
-            }
-            else if (imageControl.Source != null)
-            {
-                var imageBuffer = BitmapSourceToByteArray((BitmapSource)imageControl.Source);
-                querystring = $"INSERT INTO Tests(Title, Description, Photo, CreatedBy) VALUES('{Title}', '{Description}', '{imageBuffer}', '{userId}')";
-            }
-            else
-            {
-                querystring = $"INSERT INTO Tests(Title, Description, CreatedBy) VALUES('{Title}', '{Description}', '{userId}')";
-            }
-            SqlCommand cmd = new SqlCommand(querystring, _dataBase.getConnection());      
-            cmd.ExecuteNonQuery();
-            
-            Application.Current.Properties["Test"] = Title;
-            _dataBase.closeConnection();
+                cmd.Connection = _dataBase.getConnection();
 
-            TestBildTwo testBildTwo = new TestBildTwo();
-            testBildTwo.Show();
-            this.Close();
+                // Определяем запрос в зависимости от наличия описания и изображения
+                if (string.IsNullOrEmpty(Description) && imageControl.Source == null)
+                {
+                    querystring = "INSERT INTO Tests(Title, CreatedBy) VALUES(@Title, @CreatedBy)";
+                    cmd.Parameters.AddWithValue("@Title", Title);
+                    cmd.Parameters.AddWithValue("@CreatedBy", userId);
+                }
+                else if (imageControl.Source != null)
+                {
+                    byte[] imageBytes = BitmapSourceToByteArray((BitmapSource)imageControl.Source);
+                    querystring = "INSERT INTO Tests(Title, Description, Photo, CreatedBy) VALUES(@Title, @Description, @Photo, @CreatedBy)";
+                    cmd.Parameters.AddWithValue("@Title", Title);
+                    cmd.Parameters.AddWithValue("@Description", Description);
+                    cmd.Parameters.AddWithValue("@Photo", imageBytes);
+                    cmd.Parameters.AddWithValue("@CreatedBy", userId);
+                }
+                else
+                {
+                    querystring = "INSERT INTO Tests(Title, Description, CreatedBy) VALUES(@Title, @Description, @CreatedBy)";
+                    cmd.Parameters.AddWithValue("@Title", Title);
+                    cmd.Parameters.AddWithValue("@Description", Description);
+                    cmd.Parameters.AddWithValue("@CreatedBy", userId);
+                }
+
+                cmd.CommandText = querystring;
+
+                // Открываем соединение и выполняем запрос
+                _dataBase.openConnection(); // Убедитесь, что соединение открыто
+                cmd.ExecuteNonQuery();
+
+                Application.Current.Properties["Test"] = Title;
+                _dataBase.closeConnection();
+
+                TestBildTwo testBildTwo = new TestBildTwo();
+                testBildTwo.Show();
+                this.Close();
+            }
         }
     }
 }
