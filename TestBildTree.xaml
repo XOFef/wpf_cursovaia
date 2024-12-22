@@ -1,0 +1,70 @@
+﻿<Window x:Class="Wpf.TestBildTree"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf"
+        mc:Ignorable="d"
+               Width="{x:Static SystemParameters.PrimaryScreenWidth}"  
+        Height="{x:Static SystemParameters.PrimaryScreenHeight}"  
+        Title="Создание теста" WindowState="Maximized" >
+    <Window.Background>
+        <ImageBrush ImageSource="/photo_2024-12-22_19-22-36.jpg"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel x:Name="UpPannel" Background="#FF8AD4C7" Height="200" VerticalAlignment="Top">
+            <Image  Height="150" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="30,25,0,25" Stretch="Fill" Source="/photo_2024-12-22_19-31-01.jpg"/>
+        </StackPanel>
+        <TextBlock Width="541" Margin="55,55,0,0" Height="86" VerticalAlignment="Top" Text="Создание теста" FontSize="72" FontWeight="Bold"/>
+        <Button Style="{StaticResource GlassButton}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="100" Margin="0,50,30,50" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush ImageSource="/img_508630.png" />
+            </Button.Background>
+        </Button>
+        <Grid VerticalAlignment="Top" Height="1000" Margin="0,200,0,0">
+            <ScrollViewer HorizontalAlignment="Right">
+                <Grid Height="1908">
+                    <Border Height="200" Width="1920" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2" Margin="0,38,0,0">
+                        <Grid Width="1920" Height="200">
+                            <TextBlock TextAlignment="Center"  Text="Шаг 3: Результаты" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="446" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                            <TextBlock TextAlignment="Center"  Text="На этом шаге мы пишем все возможные результаты теста." HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Width="1124" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <Grid Height="1298" Width="1800" VerticalAlignment="Top" Margin="0,280,0,0" Background="#8AD4C7" >
+                        <StackPanel Height="100" Background="#319281" VerticalAlignment="Top">
+                            <TextBlock x:Name="Result" Text="Результат №1     от" HorizontalAlignment="Left" Height="51" Width="330" FontSize="36" TextAlignment="Center" Background="#319281" Foreground="White" VerticalAlignment="Top" Margin="0,26,0,0"/>
+                            <TextBox x:Name="ScoreLow" Height="60" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="335,-55,0,0" FontSize="36" />
+                            <TextBlock Text="до" HorizontalAlignment="Left" Height="51" Width="70" FontSize="36" TextAlignment="Center" Background="#319281" Foreground="White" VerticalAlignment="Top" Margin="450,-60,0,0"/>
+                            <TextBox x:Name="ScoreHight" Height="60" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,-60,0,0" FontSize="36" />
+                        </StackPanel>
+                        <TextBlock TextAlignment="Center"  Text="Заголовок" HorizontalAlignment="Left" Margin="50,130,0,0" VerticalAlignment="Top" Width="158" Height="60" FontSize="30" RenderTransformOrigin="0.412,0.592" FontWeight="Bold"/>
+                        <TextBox x:Name="Title" Width="1700" Margin="50,175,50,0" Height="81" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="36"/>
+                        <CheckBox x:Name="myCheckBoxTwoResult" Content="Описание теста" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,290,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Two_Result" Unchecked="CheckBox_Unchecked_Two_Result">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <TextBox x:Name="TextBoxResult" IsEnabled="False" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="1700" Margin="50,350,50,0" Height="236" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" FontSize="24"/>
+                        <CheckBox x:Name="myCheckBoxResult" Content="Фотография" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,620,0,0" VerticalAlignment="Top" Height="19" Width="109" Checked="CheckBox_Checked_Result" Unchecked="CheckBox_Unchecked_Result">
+                            <CheckBox.LayoutTransform>
+                                <ScaleTransform ScaleX="3" ScaleY="3" />
+                            </CheckBox.LayoutTransform>
+                        </CheckBox>
+                        <Button x:Name="buttonImageResult" IsEnabled="False" Width="400" Height="100" HorizontalAlignment="Left" Margin="50,175,0,0" Content="Выбрать изображение" Background="White" BorderThickness="3" BorderBrush="black" FontSize="22" Click="Button_Click_Result"/>
+                        <Image x:Name="imageControlResult" Visibility="Collapsed" Width="200" Height="200" HorizontalAlignment="Left" Margin="50,535,0,0"/>
+                        <Button Height="100" Content="+ Добавить ещё один результат" VerticalAlignment="Top" Margin="0,1040,0,0" Background="#319281" Foreground="White" FontSize="36" Click="Button_Click_NewResult"/>
+
+
+                    </Grid>
+
+                    <Grid Margin="0,1600,0,0">
+                        <Button Width="355" Margin="50,10,0,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Отмена" FontSize="36" FontWeight="Bold" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Click="Button_Click_Delete" />
+                        <Button Margin="0,10,425,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Назад" FontSize="36" FontWeight="Bold" HorizontalAlignment="Right" Width="355" Height="100" VerticalAlignment="Top" Click="Button_Click_Back" />
+                        <Button Margin="0,10,50,0" Background="#FF8AD4C7" BorderBrush="Black" BorderThickness="2" Content="Готово" FontSize="36" FontWeight="Bold" HorizontalAlignment="Right" Width="355" Height="100" VerticalAlignment="Top" Click="Button_Click_Ready" />
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
